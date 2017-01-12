@@ -1,0 +1,31 @@
+{
+	"manifest_version": 2,
+	"name": "Semantic UI",
+	"description": "WebUI Interface",
+	"version": "1.0",
+	"options_page": "index.html",
+
+	"browser_action": {
+		"default_icon": "/images/icon.png",
+		"default_title": "Persistence"
+
+	},
+"background": {
+    "scripts": ["/js/background.js"],
+    "persistent":true
+  },
+	"content_scripts": [{
+		"matches": ["https://*.youtube.com/*"],
+		"js" : ["/js/jquery-3.1.0.min.js","/js/myScript.js"],
+		"run_at": "document_end",
+		"all_frames": true
+	}],
+
+	"permissions": [
+		"cookies",
+		"tabs",
+		"activeTab",
+		"notifications",
+		"<all_urls>"
+	]
+}
